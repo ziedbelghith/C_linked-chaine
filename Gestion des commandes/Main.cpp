@@ -64,16 +64,23 @@ void afficherListe(List list)
 void afficherListeFidele(List list)
 {
 	List tmp = list;
-	int i = 0;
+	int i = 0, f = 0;
+	char tmpp[500] = "";
 	while (tmp != NULL)
 	{
-		if (i==4) {
+		if (i==0) {
+			strcpy(tmpp, tmp->client);
+		}
+		if (i==4 && f == 0) {
 			printf("\n  Client Fidele : ");
-			printf("%s", tmp->client);
-
+			printf("%s", tmpp);
+			f = 1;
 			printf("\n");
 		}
-		i++;
+		if (strcmp(tmpp, tmp->client)==0)
+		{
+			i++;
+		}
 		tmp = tmp->next;
 	}
 }
